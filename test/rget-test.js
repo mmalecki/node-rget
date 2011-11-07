@@ -2,6 +2,8 @@ var assert = require('assert'),
     vows = require('vows'),
     rget = require('../');
 
+var multiLevelData = {rget: {status: 'super'}};
+
 vows.describe('rget').addBatch({
   'When using rget': {
     'with one level': {
@@ -11,9 +13,17 @@ vows.describe('rget').addBatch({
       }
     },
     'with more levels': {
-      topic: rget({rget: {status: 'super'}}, 'rget.status'),
-      'it should return correct property': function (result) {
-        assert.equal('super', result);
+      'and default separator': {
+        topic: rget(multiLevelData, 'rget.status'),
+        'it should return correct property': function (result) {
+          assert.equal('super', result);
+        }
+      },
+      'and different separator': {
+        topic: rget(multiLevelData, 'rget:status', ':'),
+        'it should return correct property': function (result) {
+          assert.equal('super', result);
+        }
       }
     }
   }
