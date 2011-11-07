@@ -2,7 +2,7 @@
   "author": "Maciej Małecki <maciej.malecki@notimplemented.org>",
   "name": "rget",
   "description": "Access your properties by string. Recursively!",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/mmalecki/node-rget.git"
