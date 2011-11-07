@@ -19,6 +19,11 @@ var obj = {
 };
 
 rget(obj, 'user.preferences.coffee'); // => 'black'
+
+//
+// It also supports custom separators.
+//
+rget(obj, 'user:preferences:coffee', ':'); // => 'black'
 ```
 
 ## Installation
