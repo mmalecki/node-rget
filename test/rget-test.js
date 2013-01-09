@@ -10,6 +10,12 @@ vows.describe('rget').addBatch({
       topic: rget({rget: 'awesome'}, 'rget'),
       'it should return correct property': function (result) {
         assert.equal('awesome', result);
+      },
+      'with numeric path': {
+        topic: rget({ hello: ['world', 'foo'] }, 'hello.1'),
+        'it should return correct property': function (result) {
+          assert.equal('foo', result);
+        }
       }
     },
     'with more levels': {
